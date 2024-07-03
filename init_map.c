@@ -6,7 +6,7 @@
 /*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 15:30:14 by raphox            #+#    #+#             */
-/*   Updated: 2024/05/12 20:16:22 by raphox           ###   ########.fr       */
+/*   Updated: 2024/07/03 16:09:30 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,7 @@ char	**initialize_map(t_struct *game, char *str)
 char	*read_map(char *file, t_struct *game)
 {
 	int		fd;
-	char	*string;
-	char	*tmp;
+	char	*main_string;
 
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
@@ -43,20 +42,16 @@ char	*read_map(char *file, t_struct *game)
 		free(game);
 		exit(1);
 	}
-	string = get_next_line(fd);
-	while (1)
+	main_string = build_map(fd);
+	if (main_string == NULL)
 	{
-		tmp = get_next_line(fd);
-		if (tmp == NULL)
-		{
-			free(tmp);
-			break ;
-		}
-		string = ft_strjoin(string, tmp);
-		free(tmp);
+		close(fd);
+		free(main_string);
+		free(game);
+		write(1, "Error\n", 6);
+		exit(1);
 	}
-	close(fd);
-	return (string);
+	return (main_string);
 }
 
 void	design_map(t_struct *game)

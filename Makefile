@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+         #
+#    By: raphox <raphox@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/16 15:01:28 by raphox            #+#    #+#              #
-#    Updated: 2024/05/13 15:41:21 by rafaria          ###   ########.fr        #
+#    Updated: 2024/07/03 16:05:45 by raphox           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,9 +22,12 @@ CC				=	cc
 
 CFLAGS			=	-Wall -Werror -Wextra -g3
 
+MLX_DIR 		=	mlx
+
 all				:	${NAME}
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) $(MLX_DIR)
+	make -C ${MLX_DIR}
 	cc $(OBJS) mlx/libmlx.a mlx/libmlx_Linux.a -L. -lXext -L. -lX11 -o $(NAME)
 
 clean			:

@@ -6,7 +6,7 @@
 /*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:18:11 by rafaria           #+#    #+#             */
-/*   Updated: 2024/05/12 20:17:10 by raphox           ###   ########.fr       */
+/*   Updated: 2024/07/03 16:09:03 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ char		**initialize_map(t_struct *game, char *str);
 void		design_map(t_struct *game);
 int			find_player(t_struct *game, char str);
 void		build_images(t_struct *game, int x, int y);
+char		*build_map(int fd);
 
 // Check_maps ------------------------------------------------
 void		checks_maps(t_struct *game, char *str, char **map);
@@ -113,6 +114,7 @@ void		parsing(int argc, char **argv, t_struct *game);
 int			check_nb_of_args(int argc);
 int			check_name_map(char *str);
 int			check_no_coquin(t_struct *game, char *str);
+char		*build_map(int fd);
 
 // hooking
 int			key_hook(int keycode, t_struct *game);

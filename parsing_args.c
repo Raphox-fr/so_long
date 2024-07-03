@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_args.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
+/*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 15:19:54 by rafaria           #+#    #+#             */
-/*   Updated: 2024/05/13 15:22:09 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/07/03 16:09:40 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,27 @@ int	check_no_coquin(t_struct *game, char *str)
 		count++;
 	}
 	return (0);
+}
+
+char	*build_map(int fd)
+{
+	char	*string;
+	char	*tmp;
+
+	string = get_next_line(fd);
+	if (string == NULL)
+		return (NULL);
+	while (1)
+	{
+		tmp = get_next_line(fd);
+		if (tmp == NULL)
+		{
+			free(tmp);
+			break ;
+		}
+		string = ft_strjoin(string, tmp);
+		free(tmp);
+	}
+	close(fd);
+	return (string);
 }
