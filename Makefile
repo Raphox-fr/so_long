@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: raphox <raphox@student.42.fr>              +#+  +:+       +#+         #
+#    By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/16 15:01:28 by raphox            #+#    #+#              #
-#    Updated: 2024/07/03 16:05:45 by raphox           ###   ########.fr        #
+#    Updated: 2024/07/08 17:20:24 by rafaria          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ all				:	${NAME}
 
 $(NAME): $(OBJS) $(MLX_DIR)
 	make -C ${MLX_DIR}
-	cc $(OBJS) mlx/libmlx.a mlx/libmlx_Linux.a -L. -lXext -L. -lX11 -o $(NAME)
+	cc $(CFLAGS) $(OBJS) mlx/libmlx.a mlx/libmlx_Linux.a -L. -lXext -L. -lX11 -o $(NAME)
 
 clean			:
 					rm -rf ${OBJS}
