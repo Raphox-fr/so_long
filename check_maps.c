@@ -6,7 +6,7 @@
 /*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 16:45:36 by rafaria           #+#    #+#             */
-/*   Updated: 2024/05/13 15:51:00 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/07/08 17:02:18 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,9 @@ void	check_map_valid(t_struct *game, char *str)
 	int	i;
 	int	c;
 	int	ep;
+	int	error;
 
+	error = 0;
 	c = 0;
 	ep = 0;
 	i = 0;
@@ -54,7 +56,7 @@ void	check_map_valid(t_struct *game, char *str)
 	{
 		if (str[i] != 'C' && str[i] != 'E' && str[i] != 'P' && str[i] != '1'
 			&& str[i] != '0' && str[i] != '\n' && str[i] != '\0')
-			break ;
+			error++;
 		if (str[i] == 'C')
 			c++;
 		if (str[i] == 'P' || str[i] == 'E')
@@ -62,7 +64,7 @@ void	check_map_valid(t_struct *game, char *str)
 		i++;
 	}
 	game->total_collectibles = c;
-	if (ep == 2 && c >= 1)
+	if (ep == 2 && c >= 1 && error == 0)
 		return ;
 	ft_light_close(game);
 }
@@ -78,7 +80,7 @@ void	check_rectangular(t_struct *game, char *str)
 	while (str[longueur] != '\n' && str[longueur] != '\0')
 		longueur++;
 	game->x_axis = longueur;
-	if (game->x_axis > 40 || game->y_axis > 21)
+	if (game->x_axis > 30 || game->y_axis > 16)
 		ft_light_close(game);
 	if (longueur > etage)
 		return ;
