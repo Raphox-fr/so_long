@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:18:11 by rafaria           #+#    #+#             */
-/*   Updated: 2024/07/03 16:09:03 by raphox           ###   ########.fr       */
+/*   Updated: 2024/07/17 17:17:02 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,6 +129,8 @@ int			move_right(t_struct *game);
 int			ft_close(t_struct *game);
 char		**free_map(char **tab);
 int			ft_light_close(t_struct *game);
+int			init_all(t_struct *game);
+int ft_close_free(t_struct *game);
 
 // Annexe -----------------------------
 

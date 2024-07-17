@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 21:16:18 by raphox            #+#    #+#             */
-/*   Updated: 2024/05/09 19:39:09 by raphox           ###   ########.fr       */
+/*   Updated: 2024/07/17 17:16:51 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,53 @@ int	ft_close(t_struct *game)
 	free_map(game->map_to_fill);
 	free(game->mlx);
 	free(game);
-	exit(1);
+	exit(0);
+}
+
+int ft_close_free(t_struct *game)
+{
+	free(game->floor.ptr);
+	free(game->wall.ptr);
+	free(game->collect.ptr);
+	free(game->portal.ptr);
+	free(game->player.ptr);
+
+	free(game->string);
+	free_map(game->map);
+	free_map(game->map_to_fill);
+	free(game->mlx);
+	free(game);
+	exit(0);
+	
+}
+
+int	init_all(t_struct *game)
+{
+	game->mlx = NULL;
+	game->win = NULL;
+	game->string = NULL;
+	game->map = NULL;
+	game->map_to_fill = NULL;
+	game->floor.ptr = NULL;
+	game->wall.ptr = NULL;
+	game->collect.ptr = NULL;
+	game->portal.ptr = NULL;
+	game->player.ptr = NULL;
+	
+	// free(game->mlx);
+	// free(game->win);
+	// free(game->string);
+	// free_map(game->map);
+	// free(game->map);
+	// free_map(game->map_to_fill);
+	// free(game->floor.ptr);
+	// free(game->wall.ptr);
+	// free(game->collect.ptr);
+	// free(game->portal.ptr);
+	// free(game->player.ptr);
+	// exit(0);
+	return (0);
+	
 }
 
 int	ft_light_close(t_struct *game)
@@ -46,6 +92,8 @@ char	**free_map(char **tab)
 	int	j;
 
 	j = 0;
+	if (!tab)
+		return (NULL);
 	while (tab[j])
 	{
 		free(tab[j]);
