@@ -6,7 +6,7 @@
 /*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:18:11 by rafaria           #+#    #+#             */
-/*   Updated: 2024/07/17 17:17:02 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/07/18 18:16:45 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,8 @@ typedef struct t_start
 	t_img	portal;
 	t_img	collect;
 	t_img	player;
+	
+	int		indexation;
 
 }			t_struct;
 

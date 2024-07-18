@@ -6,7 +6,7 @@
 /*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 17:08:07 by raphox            #+#    #+#             */
-/*   Updated: 2024/07/17 17:18:58 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/07/18 18:51:02 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	init_mlx(t_struct *game)
 	init_components_map(game);
 	return ;
 }
+
 
 void	init_components_map(t_struct *game)
 {

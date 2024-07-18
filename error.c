@@ -6,7 +6,7 @@
 /*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 21:16:18 by raphox            #+#    #+#             */
-/*   Updated: 2024/07/17 17:16:51 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/07/18 18:50:57 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,19 +33,16 @@ int	ft_close(t_struct *game)
 
 int ft_close_free(t_struct *game)
 {
-	free(game->floor.ptr);
-	free(game->wall.ptr);
-	free(game->collect.ptr);
-	free(game->portal.ptr);
-	free(game->player.ptr);
-
+	mlx_clear_window(game->mlx, game->win);
+	mlx_destroy_window(game->mlx, game->win);
+	mlx_destroy_display(game->mlx);
+	mlx_loop_end(game->mlx);
 	free(game->string);
 	free_map(game->map);
 	free_map(game->map_to_fill);
 	free(game->mlx);
 	free(game);
 	exit(0);
-	
 }
 
 int	init_all(t_struct *game)
