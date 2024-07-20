@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_maps.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
+/*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 16:45:36 by rafaria           #+#    #+#             */
-/*   Updated: 2024/07/08 17:02:18 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/07/20 15:23:59 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,8 @@ void	check_wall_all_around(t_struct *game, char **map)
 
 	i = 0;
 	valid = 0;
+	if (!map)
+		ft_light_close(game);
 	while (map[0][i] == '1' && map[game->y_axis - 1][i] == '1'
 		&& map[0][i] != '\0')
 		i++;

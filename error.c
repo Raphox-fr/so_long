@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
+/*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 21:16:18 by raphox            #+#    #+#             */
-/*   Updated: 2024/07/19 15:29:34 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/07/19 17:53:38 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,6 @@ int	ft_close_free(t_struct *game)
 		mlx_destroy_image(game->mlx, game->wall.ptr);
 	if (game->collect.ptr)
 		mlx_destroy_image(game->mlx, game->collect.ptr);
-	mlx_clear_window(game->mlx, game->win);
-	mlx_destroy_window(game->mlx, game->win);
-	mlx_destroy_display(game->mlx);
-	mlx_loop_end(game->mlx);
 	free(game->string);
 	free_map(game->map);
 	free_map(game->map_to_fill);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_mlx.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
+/*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 17:08:07 by raphox            #+#    #+#             */
-/*   Updated: 2024/07/19 15:28:39 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/07/19 18:28:53 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ void	init_mlx(t_struct *game)
 {
 	game->mlx = mlx_init();
 	if (!game->mlx)
-		ft_close(game);
+		ft_close_free(game);
 	game->win = mlx_new_window(game->mlx, game->x_axis * 64, game->y_axis * 64,
 			"So_long");
 	if (!game->win)
-		ft_close(game);
+		ft_close_free(game);
 	init_components_map(game);
 	return ;
 }

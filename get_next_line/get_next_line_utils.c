@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
+/*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 15:15:46 by raphox            #+#    #+#             */
-/*   Updated: 2024/01/18 16:29:18 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/07/20 16:57:06 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,13 @@ char	*ft_strjoin(char *left_str, char *buff)
 	if (left_str == 0)
 	{
 		left_str = (char *)malloc(1 * sizeof(char));
+		if (left_str == NULL)
+			return (NULL);
 		left_str[0] = '\0';
 	}
-	if (buff == 0)
-		return (NULL);
 	str = malloc(sizeof(char) * ((ft_strlen(left_str) + ft_strlen(buff)) + 1));
 	if (str == NULL)
-		return (NULL);
+		return (free(left_str), NULL);
 	i = -1;
 	j = 0;
 	while (left_str[++i] != '\0')
